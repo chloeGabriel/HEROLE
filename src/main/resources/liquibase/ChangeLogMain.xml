@@ -39,4 +39,15 @@ ENGINE = InnoDB;
         </sql>
     </changeSet>
 
+    <changeSet author="NIILZON" id="add_column_confirmation_token_to_user">
+        <comment>
+            Addition of the "CONFIRMATIONTOKEN" column to the user table, which is used to email-confirm newly registered accounts
+        </comment>
+        <sql>
+            <![CDATA[
+                ALTER TABLE USER ADD COLUMN confirmationtoken VARCHAR(50);
+            ]]>
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
