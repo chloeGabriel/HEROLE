@@ -96,6 +96,7 @@
             <artifactId>jjwt</artifactId>
             <version>0.9.1</version>
         </dependency>
+        <!-- TODO learn this shit better -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
