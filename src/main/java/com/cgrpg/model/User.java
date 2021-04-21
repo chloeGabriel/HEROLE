@@ -1,9 +1,6 @@
 package com.cgrpg.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
@@ -33,6 +30,7 @@ public class User {
         this.id = id;
     }
 
+    @Column(name = "created", nullable = false, insertable = true, updatable = true, length = 19, precision = 0)
     public Timestamp getCreated() {
         return created;
     }
@@ -41,6 +39,7 @@ public class User {
         this.created = created;
     }
 
+    @Column(name = "modified", nullable = false, insertable = true, updatable = true, length = 19, precision = 0)
     public Timestamp getModified() {
         return modified;
     }
@@ -49,6 +48,7 @@ public class User {
         this.modified = modified;
     }
 
+    @Column(name = "username", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)
     public String getUsername() {
         return username;
     }
@@ -57,6 +57,7 @@ public class User {
         this.username = username;
     }
 
+    @Column(name = "email", nullable = false, insertable = true, updatable = true, length = 250, precision = 0)
     public String getEmail() {
         return email;
     }
@@ -65,6 +66,7 @@ public class User {
         this.email = email;
     }
 
+    @Column(name = "password", nullable = false, insertable = true, updatable = true, length = 100, precision = 0)
     public String getPassword() {
         return password;
     }
@@ -73,6 +75,7 @@ public class User {
         this.password = password;
     }
 
+    @Column(name = "enabled", nullable = false, insertable = true, updatable = true, length = 3, precision = 0)
     public Integer getEnabled() {
         return enabled;
     }
@@ -81,6 +84,7 @@ public class User {
         this.enabled = enabled;
     }
 
+    @Column(name = "passwordfailures", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public Integer getPasswordfailures() {
         return passwordfailures;
     }
@@ -89,6 +93,7 @@ public class User {
         this.passwordfailures = passwordfailures;
     }
 
+    @Column(name = "confirmationtoken", nullable = false, insertable = true, updatable = true, length = 250, precision = 0)
     public String getConfirmationToken() {
         return confirmationToken;
     }
@@ -97,6 +102,7 @@ public class User {
         this.confirmationToken = confirmationToken;
     }
 
+    @Column(name = "resettoken", nullable = false, insertable = true, updatable = true, length = 250, precision = 0)
     public String getResetToken() {
         return resetToken;
     }
@@ -105,6 +111,7 @@ public class User {
         this.resetToken = resetToken;
     }
 
+    @Column(name = "resettokeninternal", nullable = false, insertable = true, updatable = true, length = 250, precision = 0)
     public String getResetTokenInternal() {
         return resetTokenInternal;
     }
@@ -113,6 +120,7 @@ public class User {
         this.resetTokenInternal = resetTokenInternal;
     }
 
+    @Column(name = "resettokenexpiration", nullable = false, insertable = true, updatable = true, length = 19, precision = 0)
     public Timestamp getResetTokenExpiration() {
         return resetTokenExpiration;
     }
