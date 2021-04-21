@@ -2,6 +2,8 @@ package com.cgrpg.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -19,6 +21,12 @@ public class User {
     private String resetToken;
     private String resetTokenInternal;
     private Timestamp resetTokenExpiration;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(	name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
