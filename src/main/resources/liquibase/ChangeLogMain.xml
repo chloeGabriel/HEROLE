@@ -66,31 +66,4 @@ ENGINE = InnoDB;
         </sql>
     </changeSet>
 
-    <changeSet author="NIILZON" id="create_user_role_table">
-        <comment>USER_ROLE table creation</comment>
-        <sql>
-            <![CDATA[
-                CREATE TABLE IF NOT EXISTS USER_ROLE (
-                  id BIGINT NOT NULL AUTO_INCREMENT,
-                  user_id BIGINT NOT NULL,
-                  role_id BIGINT NOT NULL,
-                  created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                  PRIMARY KEY (id),
-                  INDEX userrole_fk1_idx (user_id ASC),
-                  INDEX userrole_fk2_idx (role_id ASC),
-                  CONSTRAINT userrole_fk_user_id
-                    FOREIGN KEY (user_id)
-                    REFERENCES USER (id)
-                    ON DELETE NO ACTION
-                    ON UPDATE NO ACTION,
-                  CONSTRAINT userrole_fk_role_id
-                  FOREIGN KEY (role_id)
-                  REFERENCES ROLE (id)
-                  ON DELETE NO ACTION
-                  ON UPDATE NO ACTION)
-                  ENGINE = InnoDB;
-            ]]>
-        </sql>
-    </changeSet>
-
 </databaseChangeLog>
