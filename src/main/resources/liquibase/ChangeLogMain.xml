@@ -66,4 +66,15 @@ ENGINE = InnoDB;
         </sql>
     </changeSet>
 
+    <changeSet author="NIILZON" id="insert_roles_user_moderator_admin">
+        <comment>ROLE table creation</comment>
+        <sql>
+            <![CDATA[
+                insert into ROLE(name) VALUES('ROLE_USER');
+                insert into ROLE(name) VALUES('ROLE_MODERATOR');
+                insert into ROLE(name) VALUES('ROLE_ADMIN');
+            ]]>
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
