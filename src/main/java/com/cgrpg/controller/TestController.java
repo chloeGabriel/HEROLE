@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/test")
 public class TestController {
+    // TODO when an unauthorized access is done, remove the stacktrace from the response ; e.g.: HTTP GET on http://localhost:8080/api/test/user when not authenticated with role "user"
     @GetMapping("/all")
     public String allAccess() {
         return "Public Content.";

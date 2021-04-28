@@ -28,9 +28,9 @@ public class UserController {
         return userRepository.findByUsername(name);
     }
 
-    @PostMapping(value="/register")
+    /**@PostMapping(value="/register") // TODO remove-me
     public User register(@RequestBody final User user){
         return userRepository.save(user);
-    }
+    }**/
 
 }

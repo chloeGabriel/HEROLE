@@ -38,6 +38,10 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.created = new Timestamp(System.currentTimeMillis()); // TODO classic entities should inherit from a superconstructor for default recurring fields
+        this.modified = new Timestamp(System.currentTimeMillis());
+        this.enabled = 1; // TODO while user email confirmation is not implemented
+        this.passwordfailures = 0;
     }
 
     public Long getId() {
@@ -48,7 +52,7 @@ public class User {
         this.id = id;
     }
 
-    @Column(name = "created", nullable = false, insertable = true, updatable = true, length = 19, precision = 0)
+    @Column(name = "created")
     public Timestamp getCreated() {
         return created;
     }
@@ -57,7 +61,7 @@ public class User {
         this.created = created;
     }
 
-    @Column(name = "modified", nullable = false, insertable = true, updatable = true, length = 19, precision = 0)
+    @Column(name = "modified")
     public Timestamp getModified() {
         return modified;
     }
@@ -93,7 +97,7 @@ public class User {
         this.password = password;
     }
 
-    @Column(name = "enabled", nullable = false, insertable = true, updatable = true, length = 3, precision = 0)
+    @Column(name = "enabled")
     public Integer getEnabled() {
         return enabled;
     }
@@ -102,7 +106,7 @@ public class User {
         this.enabled = enabled;
     }
 
-    @Column(name = "passwordfailures", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+    @Column(name = "passwordfailures")
     public Integer getPasswordfailures() {
         return passwordfailures;
     }
