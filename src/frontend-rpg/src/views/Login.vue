@@ -5,7 +5,7 @@
           id="profile-img"
           src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
           class="profile-img-card"
-          alt="profile picture"/>
+      />
       <form name="form" @submit.prevent="handleLogin">
         <div class="form-group">
           <label>Username</label>
@@ -14,6 +14,7 @@
               v-validate="'required'"
               type="text"
               class="form-control"
+              name="username"
           />
           <div
               v-if="errors.has('username')"
@@ -28,6 +29,7 @@
               v-validate="'required'"
               type="password"
               class="form-control"
+              name="password"
           />
           <div
               v-if="errors.has('password')"
@@ -119,9 +121,9 @@ label {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .profile-img-card {
