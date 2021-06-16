@@ -7,15 +7,16 @@
           class="profile-img-card"
           alt="profile_picture"
       />
-      <Form name="form" @submit="handleRegister">
+      <form name="form" @submit="handleRegister">
         <div v-if="!successful">
           <div class="form-group">
             <label>Username</label>
-            <Field
+            <input
                 v-model="user.username"
                 v-validate="'required|min:3|max:20'"
                 type="text"
                 class="form-control"
+                name="username"
             />
             <div
                 v-if="submitted && errors.has('username')"
@@ -24,11 +25,12 @@
           </div>
           <div class="form-group">
             <label>Email</label>
-            <Field
+            <input
                 v-model="user.email"
                 v-validate="'required|email|max:50'"
                 type="email"
                 class="form-control"
+                name="email"
             />
             <div
                 v-if="submitted && errors.has('email')"
@@ -37,11 +39,12 @@
           </div>
           <div class="form-group">
             <label>Password</label>
-            <Field
+            <input
                 v-model="user.password"
                 v-validate="'required|min:6|max:40'"
                 type="password"
                 class="form-control"
+                name="password"
             />
             <div
                 v-if="submitted && errors.has('password')"
@@ -52,7 +55,7 @@
             <button class="btn btn-primary btn-block">Sign Up</button>
           </div>
         </div>
-      </Form>
+      </form>
 
       <div
           v-if="message"
@@ -65,13 +68,8 @@
 
 <script>
 import User from '../models/user';
-import { Field, Form } from 'vee-validate';
 
 export default {
-  components: {
-    Field,
-    Form
-  },
   data() {
     return {
       user: new User('', '', ''),
