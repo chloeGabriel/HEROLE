@@ -52,6 +52,15 @@
             >{{errors.first('password')}}</div>
           </div>
           <div class="form-group">
+            <label>Role</label>
+            <label for="user">User</label>
+            <input type="checkbox" id="user" value="user" v-model="selected"/>
+            <label for="mod">Moderator</label>
+            <input type="checkbox" id="mod" value="mod" v-model="selected"/>
+            <label for="admin">Admin</label>
+            <input type="checkbox" id="admin" value="admin" v-model="selected"/>
+          </div>
+          <div class="form-group mt-3">
             <button class="btn btn-primary btn-block">Sign Up</button>
           </div>
         </div>
@@ -72,10 +81,11 @@ import User from '../models/user';
 export default {
   data() {
     return {
-      user: new User('', '', ''),
+      user: new User('', '', '', ''),
       submitted: false,
       successful: false,
-      message: ''
+      message: '',
+      selected: []
     };
   },
   computed: {
