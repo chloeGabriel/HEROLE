@@ -53,12 +53,10 @@
           </div>
           <div class="form-group">
             <label>Role</label>
-            <label for="user">User</label>
-            <input type="checkbox" id="user" value="user" v-model="selected"/>
-            <label for="mod">Moderator</label>
-            <input type="checkbox" id="mod" value="mod" v-model="selected"/>
-            <label for="admin">Admin</label>
-            <input type="checkbox" id="admin" value="admin" v-model="selected"/>
+            <div v-for="role in roles" :key="role.index">
+              <label>{{role}}</label>
+              <input type="checkbox" v-model="user.roles" :value="role"/>
+            </div>
           </div>
           <div class="form-group mt-3">
             <button class="btn btn-primary btn-block">Sign Up</button>
@@ -81,11 +79,11 @@ import User from '../models/user';
 export default {
   data() {
     return {
-      user: new User('', '', '', ''),
+      user: new User('', '', '', []),
       submitted: false,
       successful: false,
       message: '',
-      selected: []
+      roles: ['user', 'mod', 'admin']
     };
   },
   computed: {
