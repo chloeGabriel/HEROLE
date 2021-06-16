@@ -55,7 +55,6 @@
 import User from '../models/user';
 
 export default {
-  name: 'Login',
   data() {
     return {
       user: new User('', ''),
