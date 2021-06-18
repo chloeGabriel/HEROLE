@@ -1,5 +1,3 @@
-//AUTHENTIFICATION MODULE
-
 import AuthService from '../services/auth.service';
 
 const user = JSON.parse(localStorage.getItem('user'));
