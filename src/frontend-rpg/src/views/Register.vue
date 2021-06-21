@@ -7,7 +7,7 @@
           class="profile-img-card"
           alt="profile_picture"
       />
-      <form name="form" @submit="handleRegister">
+      <form name="form" @submit.prevent="handleRegister">
         <div v-if="!successful">
           <div class="form-group">
             <label>Username</label>
@@ -109,7 +109,7 @@ export default {
               },
               error => {
                 this.message =
-                    (error.response && error.response.data) ||
+                    (error.response && error.response.data && error.response.data.message) ||
                     error.message ||
                     error.toString();
                 this.successful = false;
