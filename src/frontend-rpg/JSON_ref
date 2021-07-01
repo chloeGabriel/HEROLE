@@ -1,0 +1,46 @@
+var myHero = {
+
+    heroName: "Peter the Wise",
+    damagePoints: 9,
+    healthPoints: 12,
+    magicPoints: 11,
+    chancePoints: 13,
+    initialGold: 20,
+    armor: {
+            name: "Ranger Cape",
+            damageBonus: 0,
+            healthBonus: 0,
+            chanceBonus: 2,
+            magicBonus: 0
+        },
+    weapons: [
+        {
+            name: "LoneRiver Daguer",
+            damageBonus: 2,
+            healthBonus: 0,
+            chanceBonus: 0,
+            magicBonus: 1
+        },
+        {
+            name: "LoneRiver Bow",
+            damageBonus: 2,
+            healthBonus: 0,
+            chanceBonus: 0,
+            magicBonus: 1
+        }
+    ],
+    inventory: {
+
+        foodSupplies: 10,
+        generalItems: [
+            { name: "Rope", quantity: 1 },
+            { name: "Torch(es)", quantity: 5 },
+            { name: "Basic Campfire", quantity: 2}
+        ],
+        treasures: [
+            { name: "Crystal Skull", type: "Artefact", goldValue: 200 },
+            { name: "Demon Heart", type: "Demonic Artefact", goldValue: 5000 },
+        ]
+
+    }
+};
