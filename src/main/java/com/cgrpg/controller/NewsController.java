@@ -61,6 +61,7 @@ public class NewsController {
             foundNews.setContent(editNewsRequest.getContent());
             foundNews.setImagePath(editNewsRequest.getImagePath());
             foundNews.setModified(new Timestamp(System.currentTimeMillis()));
+            newsRepository.save(foundNews);
             return ResponseEntity.ok(new MessageResponse("News edited"));
         }
 
