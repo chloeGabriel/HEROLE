@@ -28,13 +28,18 @@ public class NewsController {
     public ResponseEntity<?> createNews(@Valid @RequestBody CreateNewsRequest newsRequest) {
         News news = new News(newsRequest.getTitle(), newsRequest.getContent(), newsRequest.getImagePath());
         newsRepository.save(news);
-        return ResponseEntity.ok(new MessageResponse("Success! Your article is created."));
+        return ResponseEntity.ok(new MessageResponse("Success! Your news is created."));
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public void deleteNews(@PathVariable final Long id){
-        newsRepository.deleteById(id);
+    public ResponseEntity<?> deleteNews(@PathVariable final Long id){
+        Optional<News> deletedNews = newsRepository.findById(id);
+        if(! deletedNews.isEmpty()) {
+            newsRepository.deleteById(id);
+            return ResponseEntity.ok(new MessageResponse("Success! The news is deleted."));
+        }
+        return ResponseEntity.ok(new MessageResponse("Error! Record not found.")); // TODO proper http code !
     }
 
     @GetMapping("")
@@ -62,7 +67,7 @@ public class NewsController {
             foundNews.setImagePath(editNewsRequest.getImagePath());
             foundNews.setModified(new Timestamp(System.currentTimeMillis()));
             newsRepository.save(foundNews);
-            return ResponseEntity.ok(new MessageResponse("Success! Your article is updated."));
+            return ResponseEntity.ok(new MessageResponse("Success! Your news is updated."));
         }
 
         return ResponseEntity.ok(new MessageResponse("News not found")); // TODO proper http code !
