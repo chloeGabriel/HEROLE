@@ -77,4 +77,30 @@ ENGINE = InnoDB;
         </sql>
     </changeSet>
 
+    <changeSet author="NIILZON" id="create_news_table">
+        <comment>NEWS table creation</comment>
+        <sql>
+            <![CDATA[
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Table NEWS
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS NEWS (
+  id BIGINT NOT NULL AUTO_INCREMENT,
+  title VARCHAR(600) NOT NULL,
+  content TEXT NOT NULL,
+  image_path VARCHAR(600),
+  created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  modified DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id))
+ENGINE = InnoDB;
+]]>
+        </sql>
+    </changeSet>
+
+
 </databaseChangeLog>
