@@ -28,7 +28,7 @@ public class NewsController {
     public ResponseEntity<?> createNews(@Valid @RequestBody CreateNewsRequest newsRequest) {
         News news = new News(newsRequest.getTitle(), newsRequest.getContent(), newsRequest.getImagePath());
         newsRepository.save(news);
-        return ResponseEntity.ok(new MessageResponse("News created"));
+        return ResponseEntity.ok(new MessageResponse("Success! Your article is created."));
     }
 
     @DeleteMapping("/{id}")
@@ -61,10 +61,10 @@ public class NewsController {
             foundNews.setContent(editNewsRequest.getContent());
             foundNews.setImagePath(editNewsRequest.getImagePath());
             foundNews.setModified(new Timestamp(System.currentTimeMillis()));
-            return ResponseEntity.ok(new MessageResponse("News edited"));
+            return ResponseEntity.ok(new MessageResponse("Success! Your article is updated."));
         }
 
-        return ResponseEntity.ok(new MessageResponse("News not found")); // TODO proper http code !
+        return ResponseEntity.ok(new MessageResponse("Error ! The article is not found.")); // TODO proper http code !
     }
 
 }
