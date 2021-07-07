@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <header class="jumbotron">
       <h3>
         <strong>{{currentUser.username}}</strong> Profile
@@ -26,16 +26,10 @@
 
 <script>
 export default {
-  name: 'Profile',
-  computed: {
-    currentUser() {
-      return this.$store.state.auth.user;
-    }
-  },
-  mounted() {
-    if (!this.currentUser) {
-      this.$router.push('/login');
-    }
-  }
-};
+  props: ['currentUser']
+}
 </script>
+
+<style scoped>
+
+</style>

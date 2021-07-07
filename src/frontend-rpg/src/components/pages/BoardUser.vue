@@ -7,17 +7,17 @@
 </template>
 
 <script>
-import UserService from '../services/user.service';
+import UserService from '../../services/user.service';
 
 export default {
-  name: 'Moderator',
+  name: 'User',
   data() {
     return {
       content: ''
     };
   },
   mounted() {
-    UserService.getModeratorBoard().then(
+    UserService.getUserBoard().then(
         response => {
           this.content = response.data;
         },
